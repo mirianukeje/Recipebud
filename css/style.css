@@ -18,6 +18,13 @@ body {
   margin: 20px;
 }
 
+.type-toggle {
+  margin: 10px auto;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+
 #ingredientInput {
   width: 60%;
   padding: 10px;

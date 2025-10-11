@@ -18,14 +18,14 @@ function persist() {
 
 loadSaved();
 
-export function saveRecipe(id, name, image) {
+export function saveRecipe(id, name, image, type = 'meal') {
   const exists = savedRecipes.find((r) => r.id === id);
   if (exists) {
     alert("You already saved this recipe!");
     return false;
   }
 
-  savedRecipes.push({ id, name, image });
+  savedRecipes.push({ id, name, image, type });
   persist();
   alert("Recipe saved!");
   return true;
@@ -42,17 +42,17 @@ export function renderSavedRecipes(containerEl) {
   }
 
   containerEl.innerHTML = savedRecipes
-    .map(
-      (meal) => `
+    .map((item) => {
+      const isCocktail = item.type === 'cocktail';
+      const viewHandler = isCocktail ? `viewCocktail('${item.id}')` : `viewRecipe('${item.id}')`;
+      return `
     <div class="meal-card">
-      <img src="${meal.image}" alt="${meal.name}">
+      <img src="${item.image}" alt="${item.name}">
       <div class="meal-info">
-        <h3>${meal.name}</h3>
-        <button class="view-btn" onclick="viewRecipe('${meal.id}')">View Recipe</button>
+        <h3>${item.name}</h3>
+        <button class="view-btn" onclick="${viewHandler}">View Recipe</button>
       </div>
-    </div>
-  `
-    )
+    </div>`;
+    })
     .join("");
 }
-

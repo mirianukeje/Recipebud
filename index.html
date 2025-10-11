@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ingredient Recipe Search | Pantry Buddy</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,12 +15,22 @@
 
   <section class="search-section">
     <input type="text" id="ingredientInput" placeholder="Enter an ingredient (e.g., chicken, beef, egg)...">
+    <div class="type-toggle" role="radiogroup" aria-label="Search type">
+      <label>
+        <input type="radio" name="searchType" value="meal" checked>
+        Meals
+      </label>
+      <label>
+        <input type="radio" name="searchType" value="cocktail">
+        Cocktails
+      </label>
+    </div>
     <button id="ingredientBtn">Search</button>
   </section>
 
   <section id="results" class="results-section"></section>
 
-  <section id="save     dSection" class="saved-section">
+  <section id="savedSection" class="saved-section">
     <h2>Saved Recipes</h2>
     <div id="savedRecipes" class="results-section"></div>
   </section>
