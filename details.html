@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Details | Recipe Bud</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    .details-wrapper { max-width: 960px; margin: 20px auto; padding: 0 16px; }
+    .back-link { display: inline-block; margin: 16px 0; color: #066006; text-decoration: none; font-weight: 700; }
+    .detail-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .detail-hero img { width: 100%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .detail-meta h1 { margin: 0 0 8px; }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 16px; }
+    .badge { background:#066006; color:#fff; padding:4px 8px; border-radius: 999px; font-size:12px; }
+    .section { margin-top: 24px; }
+    .ingredients { list-style: disc; padding-left: 20px; }
+    @media (max-width: 740px){ .detail-hero{ grid-template-columns: 1fr; } }
+  </style>
+  <script type="module" src="./js/details.js"></script>
+  <script>
+    // Protect against FOUC: placeholder content until JS renders
+    document.documentElement.classList.add('js');
+  </script>
+  <noscript>
+    <style>.requires-js{ display:none; }</style>
+  </noscript>
+  <style>.requires-js { display:block; }</style>
+  <script>
+    // remove placeholder styles once loaded
+    window.addEventListener('DOMContentLoaded',()=>{
+      document.documentElement.classList.remove('js');
+    });
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1>Recipe Bud</h1>
+    <p>Find it. Cook it. Love it. With Recipe Bud.</p>
+  </header>
+
+  <div class="details-wrapper">
+    <a href="./index.html" class="back-link">← Back to search</a>
+    <main id="detailRoot" class="requires-js">
+      <p>Loading recipe...</p>
+    </main>
+  </div>
+
+</body>
+</html>
+

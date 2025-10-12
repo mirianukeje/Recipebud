@@ -117,3 +117,6 @@ button.save-btn, button.view-btn {
 .saved-section .meal-info h3 {
   color: #2c3e50;
 }
+
+/* Details page tweaks */
+.details-wrapper h2 { margin: 8px 0; }
