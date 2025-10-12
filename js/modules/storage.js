@@ -52,8 +52,20 @@ export function renderSavedRecipes(containerEl) {
       <div class="meal-info">
         <h3>${displayName}</h3>
         <button class="view-btn" onclick="${viewHandler}">View Recipe</button>
+        <button class="remove-btn" data-id="${item.id}">Remove</button>
       </div>
     </div>`;
     })
     .join("");
+}
+
+export function removeRecipe(id) {
+  if (!id) return false;
+  const before = savedRecipes.length;
+  savedRecipes = savedRecipes.filter((r) => r.id !== id);
+  if (savedRecipes.length !== before) {
+    persist();
+    return true;
+  }
+  return false;
 }

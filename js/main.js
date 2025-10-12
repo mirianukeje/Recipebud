@@ -1,6 +1,6 @@
 import { fetchMealsByIngredient, fetchDrinksByIngredient } from './modules/api.js';
 import { displayMeals, displayDrinks } from './modules/ui.js';
-import { saveRecipe as saveRecipeToStorage, renderSavedRecipes } from './modules/storage.js';
+import { saveRecipe as saveRecipeToStorage, renderSavedRecipes, removeRecipe as removeRecipeFromStorage } from './modules/storage.js';
 import { viewRecipe, viewCocktail } from './modules/recipes.js';
 
 const ingredientInput = document.getElementById('ingredientInput');
@@ -58,6 +58,16 @@ results.addEventListener('click', (e) => {
   if (!id) return;
   const changed = saveRecipeToStorage(id, name || '', image || '', type || 'meal');
   if (changed) renderSavedRecipes(savedRecipesContainer);
+});
+
+// Delegate remove button clicks in saved section
+savedRecipesContainer.addEventListener('click', (e) => {
+  const btn = e.target.closest('.remove-btn');
+  if (!btn) return;
+  const { id } = btn.dataset;
+  if (!id) return;
+  const removed = removeRecipeFromStorage(id);
+  if (removed) renderSavedRecipes(savedRecipesContainer);
 });
 
 // Expose functions used by inline onclick handlers

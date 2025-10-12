@@ -81,7 +81,7 @@ body {
   margin: 10px 0 5px;
 }
 
-button.save-btn, button.view-btn {
+button.save-btn, button.view-btn, button.remove-btn {
   margin: 5px;
   padding: 8px 12px;
   border: none;
@@ -104,6 +104,14 @@ button.save-btn, button.view-btn {
 
 .view-btn {
   background-color: #066006;
+}
+
+.remove-btn {
+  background-color: #000000; /* black */
+}
+
+.remove-btn:hover {
+  background-color: #066006; /* green hover */
 }
 
 .saved-section {
