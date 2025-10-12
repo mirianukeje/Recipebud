@@ -89,11 +89,17 @@ button.save-btn, button.view-btn {
   cursor: pointer;
   font-size: 14px;
   color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .save-btn {
   background-color: black;
   color: #066006;
+}
+
+.save-btn:hover {
+  background-color: #066006;
+  color: #ffffff;
 }
 
 .view-btn {
