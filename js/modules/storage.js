@@ -45,11 +45,12 @@ export function renderSavedRecipes(containerEl) {
     .map((item) => {
       const isCocktail = item.type === 'cocktail';
       const viewHandler = isCocktail ? `viewCocktail('${item.id}')` : `viewRecipe('${item.id}')`;
+      const displayName = (item.name && String(item.name).trim()) ? item.name : `${isCocktail ? 'Cocktail' : 'Meal'} ${item.id}`;
       return `
     <div class="meal-card">
-      <img src="${item.image}" alt="${item.name}">
+      <img src="${item.image}" alt="${displayName}">
       <div class="meal-info">
-        <h3>${item.name}</h3>
+        <h3>${displayName}</h3>
         <button class="view-btn" onclick="${viewHandler}">View Recipe</button>
       </div>
     </div>`;

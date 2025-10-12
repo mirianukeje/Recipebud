@@ -109,3 +109,11 @@ button.save-btn, button.view-btn {
 .saved-section h2 {
   text-align: center;
 }
+
+/* Ensure saved cards show readable text on white cards */
+.saved-section .meal-card {
+  background: #ffffff;
+}
+.saved-section .meal-info h3 {
+  color: #2c3e50;
+}

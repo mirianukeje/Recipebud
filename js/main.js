@@ -50,9 +50,20 @@ ingredientInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') searchByIngredient();
 });
 
+// Delegate save button clicks to avoid inline handler quoting issues
+results.addEventListener('click', (e) => {
+  const btn = e.target.closest('.save-btn');
+  if (!btn) return;
+  const { id, name, image, type } = btn.dataset;
+  if (!id) return;
+  const changed = saveRecipeToStorage(id, name || '', image || '', type || 'meal');
+  if (changed) renderSavedRecipes(savedRecipesContainer);
+});
+
 // Expose functions used by inline onclick handlers
 window.viewRecipe = viewRecipe;
 window.viewCocktail = viewCocktail;
+// Keeping window.saveRecipe for backward compatibility if referenced elsewhere
 window.saveRecipe = (id, name, image, type = 'meal') => {
   const changed = saveRecipeToStorage(id, name, image, type);
   if (changed) renderSavedRecipes(savedRecipesContainer);

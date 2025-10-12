@@ -14,7 +14,7 @@ export function displayMeals(meals, resultsEl) {
       <div class="meal-info">
         <h3>${meal.strMeal}</h3>
         <button class="view-btn" onclick="viewRecipe('${meal.idMeal}')">View Recipe</button>
-        <button class="save-btn" onclick="saveRecipe('${meal.idMeal}', '${meal.strMeal}', '${meal.strMealThumb}', 'meal')">Save</button>
+        <button class="save-btn" data-id="${meal.idMeal}" data-name="${meal.strMeal}" data-image="${meal.strMealThumb}" data-type="meal">Save</button>
       </div>
     </div>
   `
@@ -36,7 +36,7 @@ export function displayDrinks(drinks, resultsEl) {
       <div class="meal-info">
         <h3>${drink.strDrink}</h3>
         <button class="view-btn" onclick="viewCocktail('${drink.idDrink}')">View Recipe</button>
-        <button class="save-btn" onclick="saveRecipe('${drink.idDrink}', '${drink.strDrink}', '${drink.strDrinkThumb}', 'cocktail')">Save</button>
+        <button class="save-btn" data-id="${drink.idDrink}" data-name="${drink.strDrink}" data-image="${drink.strDrinkThumb}" data-type="cocktail">Save</button>
       </div>
     </div>
   `
