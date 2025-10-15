@@ -1,5 +1,5 @@
 // API utilities for fetching meals by ingredient
-import { getCache, setCache } from './cache.js';
+import { getCache, setCache } from "./cache.js";
 
 const SEARCH_TTL = 6 * 60 * 60 * 1000; // 6 hours
 const DETAILS_TTL = 24 * 60 * 60 * 1000; // 24 hours
@@ -19,7 +19,7 @@ export async function fetchMealsByIngredient(ingredient) {
     const meals = data.meals || null;
     setCache(cacheKey, meals, SEARCH_TTL);
     return { meals, error: null };
-  } catch (err) {
+  } catch {
     return { meals: null, error: "Error fetching recipes. Please try again later." };
   }
 }
@@ -39,7 +39,7 @@ export async function fetchDrinksByIngredient(ingredient) {
     const drinks = data.drinks || null;
     setCache(cacheKey, drinks, SEARCH_TTL);
     return { drinks, error: null };
-  } catch (err) {
+  } catch {
     return { drinks: null, error: "Error fetching cocktails. Please try again later." };
   }
 }
@@ -59,7 +59,7 @@ export async function fetchMealById(id) {
     const meal = (data.meals && data.meals[0]) || null;
     setCache(cacheKey, meal, DETAILS_TTL);
     return { meal, error: null };
-  } catch (err) {
+  } catch {
     return { meal: null, error: "Error fetching meal details." };
   }
 }
@@ -78,7 +78,7 @@ export async function fetchDrinkById(id) {
     const drink = (data.drinks && data.drinks[0]) || null;
     setCache(cacheKey, drink, DETAILS_TTL);
     return { drink, error: null };
-  } catch (err) {
+  } catch {
     return { drink: null, error: "Error fetching drink details." };
   }
 }

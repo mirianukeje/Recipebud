@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "eslint": "^9.37.0"
+  }
+}
