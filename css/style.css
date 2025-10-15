@@ -81,7 +81,7 @@ body {
   margin: 10px 0 5px;
 }
 
-button.save-btn, button.view-btn {
+button.save-btn, button.view-btn, button.remove-btn {
   margin: 5px;
   padding: 8px 12px;
   border: none;
@@ -89,6 +89,7 @@ button.save-btn, button.view-btn {
   cursor: pointer;
   font-size: 14px;
   color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .save-btn {
@@ -96,8 +97,21 @@ button.save-btn, button.view-btn {
   color: #066006;
 }
 
+.save-btn:hover {
+  background-color: #066006;
+  color: #ffffff;
+}
+
 .view-btn {
   background-color: #066006;
+}
+
+.remove-btn {
+  background-color: #000000; /* black */
+}
+
+.remove-btn:hover {
+  background-color: #066006; /* green hover */
 }
 
 .saved-section {
@@ -109,3 +123,14 @@ button.save-btn, button.view-btn {
 .saved-section h2 {
   text-align: center;
 }
+
+/* Ensure saved cards show readable text on white cards */
+.saved-section .meal-card {
+  background: #ffffff;
+}
+.saved-section .meal-info h3 {
+  color: #2c3e50;
+}
+
+/* Details page tweaks */
+.details-wrapper h2 { margin: 8px 0; }

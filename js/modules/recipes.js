@@ -2,10 +2,10 @@
 
 export function viewRecipe(id) {
   if (!id) return;
-  window.open(`https://www.themealdb.com/meal/${id}`, "_blank");
+  window.location.href = `details.html?type=meal&id=${encodeURIComponent(id)}`;
 }
 
 export function viewCocktail(id) {
   if (!id) return;
-  window.open(`https://www.thecocktaildb.com/drink/${id}`, "_blank");
+  window.location.href = `details.html?type=cocktail&id=${encodeURIComponent(id)}`;
 }
