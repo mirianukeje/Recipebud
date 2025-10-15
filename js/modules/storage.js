@@ -18,7 +18,7 @@ function persist() {
 
 loadSaved();
 
-export function saveRecipe(id, name, image, type = 'meal') {
+export function saveRecipe(id, name, image, type = "meal") {
   const exists = savedRecipes.find((r) => r.id === id);
   if (exists) {
     alert("You already saved this recipe!");
@@ -43,9 +43,9 @@ export function renderSavedRecipes(containerEl) {
 
   containerEl.innerHTML = savedRecipes
     .map((item) => {
-      const isCocktail = item.type === 'cocktail';
+      const isCocktail = item.type === "cocktail";
       const viewHandler = isCocktail ? `viewCocktail('${item.id}')` : `viewRecipe('${item.id}')`;
-      const displayName = (item.name && String(item.name).trim()) ? item.name : `${isCocktail ? 'Cocktail' : 'Meal'} ${item.id}`;
+      const displayName = (item.name && String(item.name).trim()) ? item.name : `${isCocktail ? "Cocktail" : "Meal"} ${item.id}`;
       return `
     <div class="meal-card">
       <img src="${item.image}" alt="${displayName}">
